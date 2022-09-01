@@ -25,7 +25,8 @@ double function; // *Summatory
 
 // Method to evaluate the function
 // --- Adapted function basing it on another one from StackOverflow ---
-void *convergenceEvaluation(void *thread_number){
+void *convergenceEvaluation(void *thread_number)
+{
     long number = (long)thread_number; // *Long is used in order to have more space
     double* result = new double;
     *result = 3/(pow(2,number)); // *Power
@@ -56,7 +57,8 @@ int main()
     void *ptr_function;
 
     // --- For cycle ---
-    for(int i = 0; i<=n ;i++){
+    for(int i = 0; i<=n ;i++)
+    {
         a = pthread_create(&tid, &attr, convergenceEvaluation, (void *)i);
         a = pthread_join(tid, &ptr_function);
         function += (*(double*) ptr_function);
